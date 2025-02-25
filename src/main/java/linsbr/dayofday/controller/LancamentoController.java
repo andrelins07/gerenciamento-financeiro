@@ -43,4 +43,18 @@ public class LancamentoController {
         throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Categoria não encontrada", null);
     }
 
+    @PutMapping
+    public ResponseEntity<Lancamento> atualizarLancamento(@Valid @RequestBody Lancamento lancamento) {
+
+        if (lancamentoRepository.existsById(lancamento.getId())) {
+
+            if (categoriaRepository.existsById(lancamento.getCategoria().getId())) {
+                return ResponseEntity.status(HttpStatus.OK).body(lancamentoRepository.save(lancamento));
+            }
+
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Categoria não existe!", null);
+        }
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+    }
+
 }
