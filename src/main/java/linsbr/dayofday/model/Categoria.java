@@ -1,6 +1,7 @@
 package linsbr.dayofday.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "tb_categorias")
@@ -9,7 +10,11 @@ public class Categoria {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+    @NotBlank
     private String nome;
+
+    @NotBlank
     private String descricao;
 
     public Integer getId() {
