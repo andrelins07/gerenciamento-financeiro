@@ -1,7 +1,6 @@
 package linsbr.dayofday.controller;
 
 import jakarta.validation.Valid;
-import linsbr.dayofday.model.Categoria;
 import linsbr.dayofday.model.Lancamento;
 import linsbr.dayofday.repository.CategoriaRepository;
 import linsbr.dayofday.repository.LancamentoRepository;
