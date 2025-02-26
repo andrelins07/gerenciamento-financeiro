@@ -1,5 +1,6 @@
 package linsbr.dayofday.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
@@ -18,13 +19,13 @@ public class CompartilhamentoPerfis {
     @JsonIgnoreProperties("perfisCompartilhados")
     @JoinColumn(name = "usuario_dono_id")
     @NotNull
-    private Usuario usuarioDono;
+    private Usuario usuarioDono; //usuario que compartilha o perfil
 
     @ManyToOne
-    @JsonIgnoreProperties("perfisCompartilhados")
+    @JsonIgnore
     @JoinColumn(name = "usuario_compartilhado_id")
     @NotNull
-    private Usuario usuarioCompartilhado;
+    private Usuario usuarioCompartilhado; //usuario que recebe o compartilhamento
 
     private LocalDate dataCompartilhamento = LocalDate.now();
 
