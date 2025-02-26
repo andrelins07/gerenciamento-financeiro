@@ -1,5 +1,6 @@
 package linsbr.dayofday.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
@@ -21,7 +22,7 @@ public class Usuario {
     private String ocupacao;
 
     @OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JsonIgnoreProperties("usuario")
+    @JsonIgnore
     private List<Lancamento> lancamentos;
 
     @OneToMany(mappedBy = "usuarioCompartilhado", fetch = FetchType.LAZY, cascade = CascadeType.ALL)

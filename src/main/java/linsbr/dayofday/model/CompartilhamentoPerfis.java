@@ -2,6 +2,7 @@ package linsbr.dayofday.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 
 import java.time.LocalDate;
 
@@ -16,11 +17,13 @@ public class CompartilhamentoPerfis {
     @ManyToOne
     @JsonIgnoreProperties("perfisCompartilhados")
     @JoinColumn(name = "usuario_dono_id")
+    @NotNull
     private Usuario usuarioDono;
 
     @ManyToOne
     @JsonIgnoreProperties("perfisCompartilhados")
     @JoinColumn(name = "usuario_compartilhado_id")
+    @NotNull
     private Usuario usuarioCompartilhado;
 
     private LocalDate dataCompartilhamento = LocalDate.now();
