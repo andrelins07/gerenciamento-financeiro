@@ -24,6 +24,9 @@ public class Usuario {
     @JsonIgnoreProperties("usuario")
     private List<Lancamento> lancamentos;
 
+    @OneToMany(mappedBy = "usuarioCompartilhado", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<CompartilhamentoPerfis> perfisCompartilhados;
+
     public Integer getId() {
         return id;
     }
@@ -62,6 +65,14 @@ public class Usuario {
 
     public void setLancamentos(List<Lancamento> lancamentos) {
         this.lancamentos = lancamentos;
+    }
+
+    public List<CompartilhamentoPerfis> getPerfisCompartilhados() {
+        return perfisCompartilhados;
+    }
+
+    public void setPerfisCompartilhados(List<CompartilhamentoPerfis> perfisCompartilhados) {
+        this.perfisCompartilhados = perfisCompartilhados;
     }
 
     @Override

@@ -29,7 +29,8 @@ public class Lancamento {
     private Categoria categoria;
 
     @ManyToOne
-    @JsonIgnoreProperties("lancamentos")
+    @NotNull
+    @JsonIgnoreProperties({"lancamentos","perfisCompartilhados"})
     private Usuario usuario;
 
     public Long getId() {
